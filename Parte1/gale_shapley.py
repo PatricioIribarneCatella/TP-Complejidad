@@ -1,5 +1,3 @@
-from collections import deque
-
 """
 N oferentes, N candidatos
 
@@ -38,15 +36,4 @@ def gale_shapley(oferentes, candidatos, ranking_oferentes, ranking_candidatos):
     
     return parejas
 
-oferentes  = [0,1]
-candidatos = [0,1]
-ranking_oferentes = {
-    0: deque([0,1]),
-    1: deque([0,1])
-}
-ranking_candidatos = {
-    0: [1,2],
-    1: [1,2]
-}
 
-print(gale_shapley(oferentes, candidatos, ranking_oferentes, ranking_candidatos))
