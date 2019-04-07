@@ -9,11 +9,14 @@
 #   - Permutaciones
 #   - Variaciones (n,r)
 #   - Variaciones con repetición (n,r)
+#
 
 import sys
 from os import path
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
+import constansts as cons
 
 from maximo import maximo
 from media import media
@@ -40,5 +43,7 @@ class Functions:
 
     def get(self, comando):
 
-        return self._functions[comando]
+        cmd = comando.lower()
+
+        return self._functions[cmd]
 

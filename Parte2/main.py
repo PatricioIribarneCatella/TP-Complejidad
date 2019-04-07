@@ -13,9 +13,9 @@ def main(file_path, comando, arg):
 
     funcs = Functions()
 
-    f = funcs.getcomando)
+    f = funcs.get(comando)
 
-    f(arg)
+    f(data, arg)
 
 if __name__  == "__main__":
 
