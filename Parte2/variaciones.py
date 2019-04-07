@@ -11,8 +11,9 @@
 
 def variaciones(data, arg):
 
+    print("Variaciones")
 
 def variaciones_rep(data, arg):
 
-
+    print("Variaciones repetición")
 

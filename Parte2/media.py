@@ -11,4 +11,4 @@
 
 def media(data, arg):
 
-
+    print("Media")

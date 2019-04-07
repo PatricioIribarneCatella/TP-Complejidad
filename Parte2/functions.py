@@ -16,7 +16,7 @@ from os import path
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-import constansts as cons
+import constants as cons
 
 from maximo import maximo
 from media import media

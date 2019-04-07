@@ -12,4 +12,4 @@
 
 def moda(data, arg):
 
-
+    print("Moda")

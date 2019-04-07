@@ -11,4 +11,4 @@
 
 def mediana(data, arg):
 
-
+    print("Mediana")

@@ -8,7 +8,7 @@ def read_data(path):
 
     with open(path) as f:
         n = f.readline()
-        data.put(n)
+        data.append(n)
 
     return data
 

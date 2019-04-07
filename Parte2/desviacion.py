@@ -11,4 +11,5 @@
 
 def ds(data, arg):
 
+    print("Desviación estandar")
 
