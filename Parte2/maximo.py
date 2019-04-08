@@ -15,39 +15,33 @@ from heapq import heappop, heappush
 
 def maximo_vector(data, arg):
 
-    print("Máximo-Vector")
     maximo = data[0]
 
     for elemento in data:
         maximo = max(maximo, elemento)
 
-    print(maximo)
+    return ("Máximo-Vector", maximo)
 
 def maximo_lista(data, arg):
 
     lista = sllist(data)
     
-    print("Máximo-Lista")
     maximo = lista.first()
     
     for elemento in lista:
         maximo = max(maximo, elemento)
     
-    print(maximo)
+    return ("Máximo-Lista", maximo)
 
 def maximo_vector_ord(data, arg):
-
-    print("Máximo-Vector-Ordenado")
 
     data = sorted(data)
 
     maximo = data[0]
 
-    print(maximo)
+    return ("Máximo-Vector-Ordenado", maximo)
 
 def maximo_heap(data, arg):
-
-    print("Máximo-HeapMax")
 
     # Se puede utilizar un Heap de máximos
     # Colocar todos los elementos en el Heap es O(n)
@@ -66,12 +60,16 @@ def maximo_heap(data, arg):
 
     maximo = -heappop(h)
 
-    print(maximo)
+    return ("Máximo-HeapMax", maximo)
 
 def maximo(data, arg):
 
-    maximo_vector(data, arg)
-    maximo_lista(data, arg)
-    maximo_vector_ord(data, arg)
-    maximo_heap(data, arg)
+    resultado = []
+
+    resultado.append(maximo_vector(data, arg))
+    resultado.append(maximo_lista(data, arg))
+    resultado.append(maximo_vector_ord(data, arg))
+    resultado.append(maximo_heap(data, arg))
+
+    return resultado
 

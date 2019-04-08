@@ -7,9 +7,10 @@ from os import path
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from reader import read_data
+from writer import write_data
 from functions import Functions
 
-def main(file_path, comando, arg):
+def main(file_path, comando, arg, output):
 
     data = read_data(file_path)
 
@@ -17,7 +18,9 @@ def main(file_path, comando, arg):
 
     f = funcs.get(comando)
 
-    f(data, arg)
+    res = f(data, arg)
+
+    write_data(res, output)
 
 if __name__  == "__main__":
 
@@ -37,7 +40,11 @@ if __name__  == "__main__":
                         default=2,
                         help="Argumento del comando VARIACIONES")
 
+    parser.add_argument('--output',
+                        default='resultado.txt',
+                        help="Nombre del archivo de salida")
+
     args = parser.parse_args()
 
-    main(args.file, args.comando, args.arg)
+    main(args.file, args.comando, args.arg, args.output)
 
