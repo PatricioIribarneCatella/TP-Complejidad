@@ -9,8 +9,9 @@ def read_data(path):
     data = []
 
     with open(path) as f:
-        n = f.readline()
-        data.append(int(n))
+        lines = f.readlines()
+        for n in lines:
+            data.append(int(n))
 
     return data
 

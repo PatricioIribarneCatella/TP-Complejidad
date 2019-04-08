@@ -35,7 +35,7 @@ def maximo_lista(data, arg):
 
 def maximo_vector_ord(data, arg):
 
-    data = sorted(data)
+    data = sorted(data, reverse=True)
 
     maximo = data[0]
 
