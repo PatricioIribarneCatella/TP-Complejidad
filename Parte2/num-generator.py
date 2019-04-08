@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 #
 # Genera números random
 # de acuerdo a la cantidad
