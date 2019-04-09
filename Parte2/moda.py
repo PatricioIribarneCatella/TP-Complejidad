@@ -96,12 +96,26 @@ def moda_heap(data, arg):
 
     for e in its:
         heappush(h, (-e[1], e[0]))
-        
+    
+    modas = []
+
     m = heappop(h)
 
-    moda = m[1]
+    modas.append(m[1])
+    valor = -m[0]
 
-    return ("Moda-HeapMax", moda)
+    # Busco todas los números
+    # que tengan la misma moda
+
+    m = heappop(h)
+    valor_actual = -m[0]
+
+    while valor_actual == valor:
+        modas.append(m[1])
+        m = heappop(h)
+        valor_actual = -m[0]
+
+    return ("Moda-HeapMax", modas)
 
 def moda(data, arg):
 
