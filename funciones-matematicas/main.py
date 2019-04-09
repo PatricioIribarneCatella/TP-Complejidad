@@ -37,7 +37,7 @@ if __name__  == "__main__":
 
     parser.add_argument('--arg',
                         type=int,
-                        default=2,
+                        default=None,
                         help="Argumento del comando VARIACIONES")
 
     parser.add_argument('--output',
