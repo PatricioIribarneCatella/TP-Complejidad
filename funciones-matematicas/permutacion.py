@@ -41,7 +41,7 @@ def calcular_permutaciones(data, r=None):
 
 def permutaciones_vector(data, arg):
 
-     # Se filtran los repetidos
+    # Se filtran los repetidos
     data = list(set(data))
 
     p = list(calcular_permutaciones(data))
@@ -50,11 +50,31 @@ def permutaciones_vector(data, arg):
 
     return ("Permutaciones-Vector", p)
 
+def permutaciones_lista(data, arg):
+
+    return ("Permutaciones-Lista", [])
+
+def permutaciones_vector_ord(data, arg):
+
+    # Se filtran y ordenan los valores
+    data = sorted(data)
+
+    p = list(calcular_permutaciones(data))
+ 
+    p = [str(perm) for perm in p]
+
+    return ("Permutaciones-Vector-Ordenado", p)
+
 def permutaciones(data, arg):
 
     resultados = []
 
+    # Se filtran los repetidos
+    data = list(set(data))
+
     resultados.append(permutaciones_vector(data, arg))
+    resultados.append(permutaciones_lista(data, arg))
+    resultados.append(permutaciones_vector_ord(data, arg))
 
     return resultados
 
