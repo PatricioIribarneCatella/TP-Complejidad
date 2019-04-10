@@ -26,8 +26,31 @@ class BasicGaleShapley(unittest.TestCase):
         solucion = gale_shapley(oferentes, candidatos, ranking_oferentes_colas, ranking_candidatos)
         self.assertTrue(es_matching_estable(solucion, ranking_oferentes, ranking_candidatos))
 
+    def test_basic_2_gale_shapley_simple_case_and_checker(self):
+        oferentes  = [0,1,2]
+        candidatos = [0,1,2]
+
+        ranking_oferentes = {
+            0: [0,1,2],
+            1: [1,0,2],
+            2: [0,1,2]
+        }
+        ranking_oferentes_colas = {}
+        for oferente, ranking in ranking_oferentes.items():
+            ranking_oferentes_colas[oferente] = deque(ranking)
+
+        ranking_candidatos = {
+            0: [2,1,3],
+            1: [1,2,3],
+            2: [1,2,3]
+        }
+
+        solucion = gale_shapley(oferentes, candidatos, ranking_oferentes_colas, ranking_candidatos)
+        self.assertTrue(es_matching_estable(solucion, ranking_oferentes, ranking_candidatos))
+
     def test_gale_shapley_multiple_big_cases_with_checker(self):
-        for i in range(2000):
+        for i in range(200):
+
             cantidad_oferentes = 20
             cantidad_candidatos = 20
             random.seed(i)
