@@ -15,7 +15,7 @@ $ pip3 install -r requirements.txt
 ## Run
 
 ```bash
-$ ./num-generator.py [--file=FILE_NAME(numeros.txt)]
+$ ./num-generator.py [--file=FILE_NAME(numeros.txt) | --cant=CANTIDAD(3)]
 $ ./main.py --comando=COMANDO [--fille=FILE_NAME(numeros.txt) |
 			       --arg=VARIACIONES_ARG(2) |
 			       --output=FILE_NAME(resultado.txt)]

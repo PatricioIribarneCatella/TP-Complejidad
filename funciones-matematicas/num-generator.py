@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     parser.add_argument('--cant',
                         type=int,
-                        default=10,
+                        default=3,
                         help="Cantidad de números")
 
     args = parser.parse_args()
