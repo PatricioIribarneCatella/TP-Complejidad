@@ -9,8 +9,8 @@
 #   - Vector ordenado de mayor a menor
 #
 
-from utils import calcular_variaciones
 from data import Vector, Lista
+from utils import calcular_variaciones
 
 def permutaciones_vector(data, arg):
 
