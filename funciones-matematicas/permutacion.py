@@ -10,11 +10,11 @@
 #
 
 from utils import calcular_variaciones
+from data import Vector, Lista
 
 def permutaciones_vector(data, arg):
 
-    # Se filtran los repetidos
-    data = list(set(data))
+    data = Vector(data)
 
     p = list(calcular_variaciones(data))
  
@@ -24,12 +24,20 @@ def permutaciones_vector(data, arg):
 
 def permutaciones_lista(data, arg):
 
-    return ("Permutaciones-Lista", [])
+    data = Lista(data)
+
+    p = list(calcular_variaciones(data))
+ 
+    p = [str(perm) for perm in p]
+
+    return ("Permutaciones-Lista", p)
 
 def permutaciones_vector_ord(data, arg):
 
-    # Se filtran y ordenan los valores
+    # Se ordenan los valores
     data = sorted(data)
+
+    data = Vector(data)
 
     p = list(calcular_variaciones(data))
  

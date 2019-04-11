@@ -33,9 +33,9 @@ def producto(data, repetir=1):
 #
 def calcular_variaciones(data, r=None, filtrar=True):
     
-    data = tuple(data)
+    #data = tuple(data)
 
-    n = len(data)
+    n = data.size()
 
     r = n if r is None else r
 
@@ -47,7 +47,7 @@ def calcular_variaciones(data, r=None, filtrar=True):
             # de elementos a tomar)
             #
             if len(set(indices)) == r:
-                yield tuple(data[i] for i in indices)
+                yield tuple(data.get(i) for i in indices)
         else:
-            yield tuple(data[i] for i in indices)
+            yield tuple(data.get(i) for i in indices)
 

@@ -9,9 +9,12 @@
 #   - Vector ordenado de mayor a menor
 #
 
+from data import Vector, Lista
 from utils import calcular_variaciones
 
 def variaciones_vector(data, arg):
+
+    data = Vector(data)
 
     p = list(calcular_variaciones(data, arg))
 
@@ -21,11 +24,19 @@ def variaciones_vector(data, arg):
 
 def variaciones_lista(data, arg):
 
-    return ("Variaciones-Lista", [])
+    data = Lista(data)
+
+    p = list(calcular_variaciones(data, arg))
+
+    p = [str(perm) for perm in p]
+
+    return ("Variaciones-Lista", p)
 
 def variaciones_vector_ord(data, arg):
 
     data = sorted(data)
+
+    data = Vector(data)
 
     p = list(calcular_variaciones(data, arg))
 
@@ -35,6 +46,8 @@ def variaciones_vector_ord(data, arg):
 
 def variaciones_rep_vector(data, arg):
 
+    data = Vector(data)
+
     p = list(calcular_variaciones(data, arg, filtrar=False))
 
     p = [str(perm) for perm in p]
@@ -43,11 +56,19 @@ def variaciones_rep_vector(data, arg):
 
 def variaciones_rep_lista(data, arg):
 
-    return ("Variaciones-Repetición-Lista", [])
+    data = Lista(data)
+
+    p = list(calcular_variaciones(data, arg, filtrar=False))
+
+    p = [str(perm) for perm in p]
+
+    return ("Variaciones-Repetición-Lista", p)
 
 def variaciones_rep_vector_ord(data, arg):
 
     data = sorted(data)
+
+    data = Vector(data)
 
     p = list(calcular_variaciones(data, arg, filtrar=False))
 
