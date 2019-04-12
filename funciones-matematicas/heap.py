@@ -1,6 +1,5 @@
 #
 # Utiliza el algoritmo de 'Heap'
-# mediante llamados recursivos
 #
 # Fuente: https://en.wikipedia.org/wiki/Heap%27s_algorithm
 #
