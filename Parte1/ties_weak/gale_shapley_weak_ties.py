@@ -15,7 +15,7 @@ Mientras haya oferentes libres que no hayan agotados sus opciones (1)
             (O, C) se comprometen y O' queda libre
 """
 
-# ranking_oferentes diccionario con clave 'oferente' y valor lista ordenada de candidatos
+# ranking_oferentes diccionario con clave 'oferente' y valor lista ordenada de lista de candidatos con igual prioridad
 # ranking_candidatos diccionario con clave 'candidato'  y valor diccionario con clave 'oferente' y valor ranking
 
 def gale_shapley(oferentes, candidatos, ranking_oferentes, ranking_candidatos):
@@ -46,18 +46,3 @@ def gale_shapley(oferentes, candidatos, ranking_oferentes, ranking_candidatos):
     return parejas
 
 
-ranking_oferentes = {
-    0: deque([[0],[1],[2],[3]]),
-    1: deque([[0],[1,2],[3]]),
-    2: deque([[1,3],[0,2]]),
-    3: deque([[3],[1,2],[0]])
-}
-
-ranking_candidatos = {
-    0: {0:1, 1:2, 2:1, 3:1}, 
-    1: {0:2, 1:3, 2:3, 3:1},
-    2: {0:3, 1:2, 2:1, 3:4},
-    3: {0:2, 1:2, 2:1, 3:1}
-}
-
-print(gale_shapley(ranking_oferentes.keys(), ranking_candidatos.keys(), ranking_oferentes, ranking_candidatos))
