@@ -33,8 +33,6 @@ def producto(data, repetir=1):
 #
 def calcular_variaciones(data, r=None, filtrar=True):
     
-    #data = tuple(data)
-
     n = data.size()
 
     r = n if r is None else r
