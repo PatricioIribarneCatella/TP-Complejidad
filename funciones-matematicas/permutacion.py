@@ -7,10 +7,12 @@
 #   - Vector
 #   - Lista
 #   - Vector ordenado de mayor a menor
+#   - Arbol (descripto en arbol.py)
 #
 
 from data import Vector, Lista
 from utils import calcular_variaciones
+import arbol as a
 
 def permutaciones_vector(data, arg):
 
@@ -45,6 +47,14 @@ def permutaciones_vector_ord(data, arg):
 
     return ("Permutaciones-Vector-Ordenado", p)
 
+def permutaciones_arbol(data, arg):
+
+    p = a.calcular_variaciones(data)
+
+    p = [str(perm) for perm in p]
+
+    return ("Permutaciones-Arbol", p)
+
 def permutaciones(data, arg):
 
     resultados = []
@@ -55,6 +65,7 @@ def permutaciones(data, arg):
     resultados.append(permutaciones_vector(data, arg))
     resultados.append(permutaciones_lista(data, arg))
     resultados.append(permutaciones_vector_ord(data, arg))
+    resultados.append(permutaciones_arbol(data, arg))
 
     return resultados
 
