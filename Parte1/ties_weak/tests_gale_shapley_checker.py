@@ -17,6 +17,7 @@ class BasicGaleShapley(unittest.TestCase):
         }
 
         solucion = { 0: 0, 1: 1}
+        print(es_matching_estable(solucion, ranking_oferentes, ranking_candidatos))
         self.assertTrue(es_matching_estable(solucion, ranking_oferentes, ranking_candidatos))
 
     def test_simple_inestability_gs_checker(self):
@@ -31,7 +32,8 @@ class BasicGaleShapley(unittest.TestCase):
             1: [1,2]
         }
 
-        solucion = { 0: 1, 1: 0}
+        solucion = { 0: 1, 1: 0 }
+        print(es_matching_estable(solucion, ranking_oferentes, ranking_candidatos))
         self.assertFalse(es_matching_estable(solucion, ranking_oferentes, ranking_candidatos))
 
 if __name__ == '__main__':

@@ -13,15 +13,11 @@ def es_matching_estable(parejas, ranking_oferentes, ranking_candidatos):
     return True
 
 def oferente_cambiaria(oferente, candidato, parejas, ranking_oferentes, ranking_candidatos):
-
+    
     for mejor_candidato in ranking_oferentes[oferente]:
         if candidato == mejor_candidato:
             break
-        if ranking_candidatos[mejor_candidato][oferente] < ranking_candidatos[mejor_candidato][parejas[candidato]]: 
+        if ranking_candidatos[mejor_candidato][oferente] < ranking_candidatos[mejor_candidato][parejas[mejor_candidato]]: 
             return True
     return False
-
-
-
-
 

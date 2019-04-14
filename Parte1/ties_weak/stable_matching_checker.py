@@ -18,7 +18,7 @@ def oferente_cambiaria(oferente, candidato, parejas, ranking_oferentes, ranking_
         if candidato in mejores_candidatos:
             break
         for mejor_candidato in mejores_candidatos:
-            if ranking_candidatos[mejor_candidato][oferente] < ranking_candidatos[mejor_candidato][parejas[candidato]]: 
+            if ranking_candidatos[mejor_candidato][oferente] < ranking_candidatos[mejor_candidato][parejas[mejor_candidato]]: 
                 return True
     return False
 
