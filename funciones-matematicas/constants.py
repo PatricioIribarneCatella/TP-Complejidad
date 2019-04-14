@@ -7,5 +7,5 @@ MODA = "moda"
 DS = "desviacion"
 PERM = "permutaciones"
 VAR = "variaciones"
-VAR_REP = "variacionesrep"
+VAR_REP = "variaciones-repeticion"
 
