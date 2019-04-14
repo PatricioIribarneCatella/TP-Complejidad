@@ -104,7 +104,7 @@ def moda_heap(data, arg):
     modas.append(m[1])
     valor = -m[0]
 
-    # Busco todas los números
+    # Se buscan todas los números
     # que tengan la misma moda
 
     m = heappop(h)
