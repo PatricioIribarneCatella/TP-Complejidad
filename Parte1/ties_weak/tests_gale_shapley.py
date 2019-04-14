@@ -22,7 +22,7 @@ class BasicGaleShapley(unittest.TestCase):
             3: {0:2, 1:2, 2:1, 3:1}
         }
 
-        solucion = gale_shapley(ranking_oferentes.keys(), ranking_candidatos.keys(), ranking_oferentes, ranking_candidatos)
+        solucion = gale_shapley(list(ranking_oferentes.keys()), list(ranking_candidatos.keys()), ranking_oferentes, ranking_candidatos)
         self.assertTrue(es_matching_estable(solucion, ranking_oferentes, ranking_candidatos))
 
     def random_groups(self, sequence):
