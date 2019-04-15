@@ -3,6 +3,7 @@ import sys
 import csv
 from collections import deque
 from gale_shapley_weak_ties import gale_shapley
+from stable_matching_checker import es_matching_estable
 
 #el archivo se lo corre de la siguiente forma: python3 picapica.py [cantidad de jugadores] [nombre del archivo con los jugadores]
 # Ej: python3 picapica.py 4 jugadores.rank
@@ -64,22 +65,43 @@ def crear_lista_oferentes(cantidad_jugadores, lista_jugadores):
 		lista_oferentes.append(jugador[0])
 	return lista_oferentes
 
-def crear_archivo_salida(parejas):
+def crear_archivo_salida_gs(parejas):
 	f= open("parejas.txt","w")
 	for key, value in parejas.items():
 		f.write("%s, %s\n" % (key, value))
 	f.close()
 
+def crear_archivo_salida_sm(parejas, ranking_oferentes, ranking_candidatos):
+	f = open("matching-estable.txt","w")
+	resultado = es_matching_estable(parejas, ranking_oferentes, ranking_candidatos)
+	f.write(str(resultado))
+	f.close()
+
+def entrada_erronea(parametros):
+	if len(parametros) != 4:
+		return True
+	if not parametros[2].isdigit():
+		return True
+	if parametros[1] not in ["gs", "gale-shapley", "sm", "me", "stable-matching", "matching-estable"]:
+		return True
+	return False
 
 def main():
-	cantidad_jugadores = sys.argv[1]
-	jugadores = sys.argv[2]
-	lista_jugadores = crear_lista_jugadores(cantidad_jugadores, jugadores)
-	lista_oferentes = crear_lista_oferentes(cantidad_jugadores, lista_jugadores)
-	ranking_oferentes = crear_ranking_oferentes(cantidad_jugadores, lista_jugadores, lista_oferentes)
-	ranking_candidatos = crear_ranking_candidatos(cantidad_jugadores, lista_jugadores, lista_oferentes)
-	parejas = gale_shapley(lista_oferentes, ranking_oferentes, ranking_candidatos)
-	crear_archivo_salida(parejas)
+	if entrada_erronea(sys.argv):
+		print("Error de formato. El formato debe ser picapica.py [funcion] [cantidad de jugadores] [archivo de jugadores]")
+	else:
+		funcion = sys.argv[1]
+		cantidad_jugadores = sys.argv[2]
+		jugadores = sys.argv[3]
+		lista_jugadores = crear_lista_jugadores(cantidad_jugadores, jugadores)
+		lista_oferentes = crear_lista_oferentes(cantidad_jugadores, lista_jugadores)
+		ranking_oferentes = crear_ranking_oferentes(cantidad_jugadores, lista_jugadores, lista_oferentes)
+		ranking_candidatos = crear_ranking_candidatos(cantidad_jugadores, lista_jugadores, lista_oferentes)
+		parejas = gale_shapley(lista_oferentes, ranking_oferentes, ranking_candidatos)
+		if funcion in ["gs", "gale-shapley"]:
+			crear_archivo_salida_gs(parejas)
+		elif funcion in ["sm", "me", "stable-matching", "matching-estable"]:
+			crear_archivo_salida_sm(parejas, ranking_oferentes, ranking_candidatos)
 
 main()
 
