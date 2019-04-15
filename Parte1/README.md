@@ -31,7 +31,7 @@ $ python3 picapica.py matching-estable 4 jugadores.rank
 
 ### Clean
 
-Remueve **__pycache__**, _matching-estable.txt_ y parejas.txt_ "*.pyc"
+Remueve **__pycache__**, _matching-estable.txt_ y parejas.txt_
 
 ```bash
 $ ./clean.sh

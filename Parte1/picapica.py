@@ -2,19 +2,19 @@
 import sys
 import csv
 from collections import deque
-from gale_shapley_weak_ties import gale_shapley
-from stable_matching_checker import es_matching_estable
+from ties_weak.gale_shapley_weak_ties import gale_shapley
+from ties_weak.stable_matching_checker import es_matching_estable
 
 #el archivo se lo corre de la siguiente forma: python3 picapica.py [cantidad de jugadores] [nombre del archivo con los jugadores]
 # Ej: python3 picapica.py 4 jugadores.rank
 
 def crear_lista_jugadores(cantidad_jugadores, file_jugadores):
 	lista_jugadores = []
-	jugadores = open(file_jugadores)
+	jugadores = open("jugadores/%s" % file_jugadores)
 	jugadores_csv = csv.reader(jugadores)
 	for jugador in jugadores_csv:
 		lista_ranking = []
-		ranking = open(jugador[2])
+		ranking = open("jugadores/%s" % jugador[2])
 		ranking_csv = csv.reader(ranking)
 		for persona in ranking_csv:
 			lista_ranking.append([persona[0],persona[1]])
