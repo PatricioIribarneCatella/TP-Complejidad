@@ -1,4 +1,4 @@
-# Funciones Matemáticas
+# Parte 2: Funciones matemáticas / estadísticas
 
 ## Setup
 
