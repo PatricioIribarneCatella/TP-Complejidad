@@ -12,21 +12,21 @@ class Nodo:
 
         self.val = val
         self.n = n
-        self.children = []
+        self.hijos = []
         
         if level > 0:
             for i in range(n):
                 if i != self.val or not filtrar:
-                    self.children.append(Nodo(i, level - 1, n, filtrar))
+                    self.hijos.append(Nodo(i, level - 1, n, filtrar))
 
-    def hasChildren(self):
-        return len(self.children) > 0
+    def tiene_hijos(self):
+        return len(self.hijos) > 0
 
-    def getValue(self):
+    def get_valor(self):
         return self.val
 
-    def getChildren(self):
-        return self.children
+    def get_hijos(self):
+        return self.hijos
 
 class Arbol:
 
@@ -46,12 +46,12 @@ class Arbol:
 
         self.t = [Nodo(i, level, n, self.filtrar) for i in range(n)]
     
-    def _visitar(self, aux, node, r, resultados, filtrar):
+    def _visitar(self, aux, nodo, r, resultados, filtrar):
 
-        aux.append(node.getValue())
+        aux.append(nodo.get_valor())
 
-        if node.hasChildren():
-            for e in node.getChildren():
+        if nodo.tiene_hijos():
+            for e in nodo.get_hijos():
                 self._visitar(aux, e, r, resultados, filtrar)
             aux.pop()
         else:
