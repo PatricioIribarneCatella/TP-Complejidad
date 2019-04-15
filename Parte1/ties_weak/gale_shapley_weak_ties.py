@@ -18,7 +18,7 @@ Mientras haya oferentes libres que no hayan agotados sus opciones (1)
 # ranking_oferentes diccionario con clave 'oferente' y valor lista ordenada de lista de candidatos con igual prioridad
 # ranking_candidatos diccionario con clave 'candidato'  y valor diccionario con clave 'oferente' y valor ranking
 
-def gale_shapley(oferentes, candidatos, ranking_oferentes, ranking_candidatos):
+def gale_shapley(oferentes, ranking_oferentes, ranking_candidatos):
     parejas = {}
     oferentes_libres = oferentes[:]
     while (oferentes_libres):
