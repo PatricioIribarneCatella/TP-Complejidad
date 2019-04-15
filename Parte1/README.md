@@ -2,6 +2,8 @@
 
 ## Run
 
+Dentro del directorio _jugadores_ se deben encontrar el archivo de jugadores junto con los archivos de preferencias de los mismos
+
 __Gale-Shapley__
 ```bash
 $ python3 picapica.py gs 4 jugadores.rank 
