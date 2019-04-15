@@ -6,9 +6,9 @@ from os import path
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-from reader import read_data
-from writer import write_data
-from functions import Functions
+from src.reader import read_data
+from src.writer import write_data
+from src.funcs.functions import Functions
 
 def main(file_path, comando, arg, output):
 

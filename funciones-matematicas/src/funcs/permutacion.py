@@ -10,9 +10,9 @@
 #   - Arbol (descripto en arbol.py)
 #
 
-from data import Vector, Lista
-from utils import calcular_variaciones
-import arbol as a
+from src.data import Vector, Lista
+from src.utils import calcular_variaciones
+import src.arbol as a
 
 def permutaciones_vector(data, arg):
 

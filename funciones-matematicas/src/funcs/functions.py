@@ -16,15 +16,15 @@ from os import path
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-import constants as cons
+import src.constants as cons
 
-from maximo import maximo
-from media import media
-from mediana import mediana
-from moda import moda
-from desviacion import ds
-from permutacion import permutaciones
-from variaciones import *
+from funcs.maximo import maximo
+from funcs.media import media
+from funcs.mediana import mediana
+from funcs.moda import moda
+from funcs.desviacion import ds
+from funcs.permutacion import permutaciones
+from funcs.variaciones import *
 
 class Functions:
 

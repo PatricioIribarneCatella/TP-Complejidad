@@ -10,7 +10,7 @@
 #
 
 from math import sqrt
-from media import calcular_media
+from funcs.media import calcular_media
 
 def ds_vector(data, arg, version):
     
