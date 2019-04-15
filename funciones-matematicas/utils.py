@@ -15,16 +15,16 @@
 # entre un vector consigo mismo
 # con la cantidad de elementos 'repetir'
 #
-def producto(data, repetir=1):
+def producto(datos, repetir=1):
 
-    pools = [tuple(data)] * repetir
-    result = [[]]
+    replicas = [tuple(datos)] * repetir
+    indices = [[]]
     
-    for pool in pools:
-        result = [x+[y] for x in result for y in pool]
+    for rep in replicas:
+        indices = [x+[y] for x in indices for y in rep]
     
-    for prod in result:
-        yield tuple(prod)
+    for idx in indices:
+        yield tuple(idx)
 #
 # Calcula las variaciones de 'n = len(data)'
 # tomados de a 'r' elementos. Si r == n

@@ -18,6 +18,11 @@ def main(file_path, comando, arg, output):
 
     f = funcs.get(comando)
 
+    if f == None:
+        print("Comando inválido, las opciones son:")
+        print(funcs.get_funcs())
+        return
+
     res = f(data, arg)
 
     write_data(res, output)

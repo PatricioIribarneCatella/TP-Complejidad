@@ -45,5 +45,12 @@ class Functions:
 
         cmd = comando.lower()
 
+        if cmd not in self._functions:
+            return None
+
         return self._functions[cmd]
+    
+    def get_funcs(self):
+
+        return [f for f in self._functions.keys()]
 
