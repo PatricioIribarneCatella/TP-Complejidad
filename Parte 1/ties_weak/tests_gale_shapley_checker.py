@@ -1,7 +1,6 @@
 import unittest
 from gale_shapley_weak_ties import gale_shapley
 from stable_matching_checker import es_matching_estable
-from collections import deque
 
 class BasicGaleShapley(unittest.TestCase):
     def test_basic_gale_shapley_simple_case_checker(self):
@@ -38,3 +37,4 @@ class BasicGaleShapley(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

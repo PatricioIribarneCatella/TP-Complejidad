@@ -22,7 +22,3 @@ def oferente_cambiaria(oferente, candidato, parejas, ranking_oferentes, ranking_
                 return True
     return False
 
-
-
-
-
