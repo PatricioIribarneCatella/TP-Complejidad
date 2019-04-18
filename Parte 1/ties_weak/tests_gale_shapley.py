@@ -3,16 +3,16 @@ import random
 
 from gale_shapley_weak_ties import gale_shapley
 from stable_matching_checker import es_matching_estable
-from collections import deque
+from llist import sllist
 
 class BasicGaleShapley(unittest.TestCase):
     def test_basic_gale_shapley_simple_case_and_checker(self):
 
         ranking_oferentes = {
-            0: deque([[0],[1],[2],[3]]),
-            1: deque([[0],[1,2],[3]]),
-            2: deque([[1,3],[0,2]]),
-            3: deque([[3],[1,2],[0]])
+            0: [[0],[1],[2],[3]],
+            1: [[0],[1,2],[3]],
+            2: [[1,3],[0,2]],
+            3: [[3],[1,2],[0]]
         }
 
         ranking_candidatos = {
@@ -22,8 +22,11 @@ class BasicGaleShapley(unittest.TestCase):
             3: {0:2, 1:2, 2:1, 3:1}
         }
 
-        solucion = gale_shapley(list(ranking_oferentes.keys()), list(ranking_candidatos.keys()), ranking_oferentes, ranking_candidatos)
+        solucion = gale_shapley(list(ranking_oferentes.keys()), list(ranking_candidatos.keys()), self.deep_copy(ranking_oferentes), ranking_candidatos) 
         self.assertTrue(es_matching_estable(solucion, ranking_oferentes, ranking_candidatos))
+
+    def deep_copy(self, ranking):
+        return { key: sllist([subsequence[:] for subsequence in sequence]) for key, sequence in ranking.items() }
 
     def random_groups(self, sequence):
         random_sequence = random.sample(sequence, len(sequence))
@@ -38,8 +41,8 @@ class BasicGaleShapley(unittest.TestCase):
     def test_gale_shapley_multiple_big_cases_with_checker(self):
         for i in range(200):
 
-            cantidad_oferentes = 20
-            cantidad_candidatos = 20
+            cantidad_oferentes = 3
+            cantidad_candidatos = 3
             random.seed(i)
             
             oferentes = list(range(0, cantidad_oferentes))
@@ -53,17 +56,12 @@ class BasicGaleShapley(unittest.TestCase):
                 ranking_candidatos[candidato] = random.sample(puntajes_posibles, len(puntajes_posibles))
             
             ranking_oferentes = {}
-
             for oferente in oferentes:
-                ranking_oferentes[oferente] = self.random_groups(oferentes)
-                
-            ranking_oferentes_colas = {}
-            for oferente, ranking in ranking_oferentes.items():
-                ranking_oferentes_colas[oferente] = deque(ranking)
+                ranking_oferentes[oferente] = self.random_groups(candidatos) 
 
-            solucion = gale_shapley(oferentes, candidatos, ranking_oferentes_colas, ranking_candidatos)
+            solucion = gale_shapley(oferentes, candidatos, self.deep_copy(ranking_oferentes), ranking_candidatos)
             self.assertTrue(es_matching_estable(solucion, ranking_oferentes, ranking_candidatos))
-
 
 if __name__ == '__main__':
     unittest.main()
+
