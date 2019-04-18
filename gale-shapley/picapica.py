@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 import sys
 import csv
-from collections import deque
+from llist import sllist
 from ties_weak.gale_shapley_weak_ties import gale_shapley
 from ties_weak.stable_matching_checker import es_matching_estable
 
@@ -45,7 +45,7 @@ def crear_ranking_oferentes(cantidad_jugadores, lista_jugadores, lista_oferentes
 						lista_de_listas[-1][1].append(candidato[0])
 					else:
 						lista_de_listas.append([candidato[1], [candidato[0]]])
-		ranking_oferentes[jugador[0]] = deque([getJustValues(item) for item in lista_de_listas])
+		ranking_oferentes[jugador[0]] = sllist([getJustValues(item) for item in lista_de_listas])
 	return ranking_oferentes
 
 def crear_ranking_candidatos(cantidad_jugadores, lista_jugadores, lista_oferentes):

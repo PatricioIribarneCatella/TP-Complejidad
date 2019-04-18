@@ -37,8 +37,7 @@ def gale_shapley(oferentes, candidatos, ranking_oferentes, ranking_candidatos):
         
         else:
             oferentes_libres.append(oferente)
-    
-    
+        
     return parejas
 
 

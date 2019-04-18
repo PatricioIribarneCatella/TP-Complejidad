@@ -1,5 +1,3 @@
-from collections import deque
-
 """
 N oferentes, N candidatos
 
@@ -23,8 +21,8 @@ def gale_shapley(oferentes, ranking_oferentes, ranking_candidatos):
     oferentes_libres = oferentes[:]
     while (oferentes_libres):
         oferente  = oferentes_libres.pop()
-        candidato = ranking_oferentes[oferente][0].pop()
-        if not ranking_oferentes[oferente][0]:
+        candidato = ranking_oferentes[oferente].first().pop()
+        if not ranking_oferentes[oferente].first():
             ranking_oferentes[oferente].popleft()
         
         if not candidato in parejas:
@@ -41,8 +39,6 @@ def gale_shapley(oferentes, ranking_oferentes, ranking_candidatos):
         
         else:
             oferentes_libres.append(oferente)
-    
-    
+     
     return parejas
-
 
