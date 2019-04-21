@@ -1,6 +1,6 @@
 # TP-Complejidad
 
-_Gale-Shapley_ (con empates) y funciones matemáticas/estadísticas (Teoría de Algoritmos I)
+_Gale-Shapley_ (con empates) y funciones matemáticas/estadísticas (_Teoría de Algoritmos I - FIUBA_)
 
 
 
