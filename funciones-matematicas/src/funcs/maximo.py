@@ -44,7 +44,8 @@ def maximo_vector_ord(data, arg):
 def maximo_heap(data, arg):
 
     # Se puede utilizar un Heap de máximos
-    # Colocar todos los elementos en el Heap es O(n)
+    # Colocar todos los elementos en el Heap
+    # es O(n log(n))
     # Obtener el máximo es O(1)
     #
     # El heap implmentado es de mínimos,
