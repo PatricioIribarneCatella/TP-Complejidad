@@ -8,13 +8,13 @@ _Gale-Shapley_ (con empates) y funciones matemáticas/estadísticas (_Teoría de
 
 ```bash
 $ cd gale-shapley
-$ vi README.md
+$ less README.md
 ```
 
 ### Funciones matemáticas
 
 ```bash
 $ cd funciones-matematicas
-$ vi README.md
+$ less README.md
 ```
 
